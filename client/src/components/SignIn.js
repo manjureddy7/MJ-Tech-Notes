@@ -51,7 +51,7 @@ const SignIn = (props) => {
         </div>
 
         <div className="field">
-          <label className="label">Note Content</label>
+          <label className="label">Password:</label>
           <div className="control">
             <input
               className="input"
