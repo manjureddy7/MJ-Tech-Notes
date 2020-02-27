@@ -2,6 +2,7 @@
 //  either query some data or modify some data.
 
 import NoteModel from '../Mongoose_Models/note';
+import UserModel from '../Mongoose_Models/user';
 
 export const resolvers = {
   Query: { // QUERY is basically a GET request in REST
@@ -21,6 +22,12 @@ export const resolvers = {
     },
     async deleteNote(root, { _id }) {
       return await NoteModel.findOneAndRemove({ _id })
+    },
+    async createUser(root, { input }) {
+      return await UserModel.create(input)
+    },
+    async authenticateUser(root, { input }) {
+      return await UserModel.findOne(input)
     }
   }
 }

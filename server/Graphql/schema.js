@@ -19,10 +19,16 @@ import { resolvers } from './resolvers';
 const typeDefs = `
 
   type Note {
-    _id: ID!,
+    _id: ID!
     title: String!
     content: String!
     date: Date
+  }
+
+  type User {
+    _id: ID!
+    email: String!
+    password: String!
   }
 
   scalar Date
@@ -42,10 +48,17 @@ const typeDefs = `
     content: String
   }
 
+  input UserInput {
+    email: String
+    password: String
+  }
+
   type Mutation {
     createNote(input: NoteInput) : Note
     updateNote(_id:ID!,input: NoteUpdateInput) : Note
     deleteNote(_id:ID!) : Note
+    createUser(input: UserInput) : User
+    authenticateUser(input: UserInput): User
   }
 
 `;
